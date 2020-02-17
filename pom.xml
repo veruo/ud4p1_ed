@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ies.conselleria</groupId>
+  <artifactId>ud4p1_ed</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+<dependencies>
+	<dependency>
+		<groupId>org.junit.jupiter</groupId>
+		<artifactId>junit-jupiter-engine</artifactId>
+		<version>5.4.0</version>
+		<scope>test</scope>
+	</dependency>
+</dependencies>
+ 
+<build>
+  <pluginManagement>
+    <plugins>
+    
+    <!-- PLUGIN SONARSOURCE -->
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.6.0.1398</version>
+      </plugin>   
+      <!-- FIN PLUGIN SONARSOURCE -->
+      
+      <!-- PLUGIN JACOCO -->
+      <plugin>
+			<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.5</version>
+				<executions>
+					<execution>
+						<id>jacoco-initialize</id>
+						<phase>initialize</phase>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+					</execution>
+					<execution>
+						<id>jacoco-site</id>
+						<phase>verify</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+					</execution>
+				</executions>
+		</plugin>
+		<!-- FIN PLUGIN JACOCO -->
+		
+      <!-- PLUGIN SURFIRE -->
+      	<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+					<configuration>
+						<includes>
+							<include>**/*Test.java</include>
+							<argLine>-Xmx1024M</argLine>
+						</includes>
+					</configuration>
+
+		</plugin>
+      	<!-- FIN PLUGIN SURFIRE -->
+       
+    </plugins>    
+  </pluginManagement>
+</build>
+ 
+  
+  
+  
+  
+</project>
